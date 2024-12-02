@@ -105,13 +105,21 @@ def modify_committee_info():
             phone_number = request.form['phoneNumber']
             email = request.form['email']
             address = request.form['address']
+            password = request.form.get('password')
 
             # Update the committee information in the database
-            cursor.execute('''
-                UPDATE committee_info
-                SET committeeHeadName = %s, phoneNumber = %s, email = %s, address = %s
-                WHERE userName = %s
-            ''', (committee_head_name, phone_number, email, address, userName))
+            if password:
+                cursor.execute('''
+                    UPDATE committee_info
+                    SET committeeHeadName = %s, phoneNumber = %s, email = %s, address = %s, password = %s
+                    WHERE userName = %s
+                ''', (committee_head_name, phone_number, email, address, password, userName))
+            else:
+                cursor.execute('''
+                    UPDATE committee_info
+                    SET committeeHeadName = %s, phoneNumber = %s, email = %s, address = %s
+                    WHERE userName = %s
+                ''', (committee_head_name, phone_number, email, address, userName))
 
             conn.commit()
 
@@ -127,7 +135,6 @@ def modify_committee_info():
             return render_template('modifyCommitteeInfo.html', committee_info=committee_info)
     else:
         return redirect(url_for('committee_login'))
-
 @app.route('/register', methods=['POST'])
 def register():
     mosque_name = request.form['mosqueName']

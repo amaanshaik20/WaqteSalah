@@ -4,19 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prayer Pulse| Committee Member Login</title>
+    <title>Prayer Pulse | Committee Member Login</title>
     <link rel="icon" href="/static/mosque-icon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- FontAwesome for icons -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #e9ecef;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #343a40;
+            background: url('https://source.unsplash.com/1600x900/?mosque') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .heading {
+            font-weight: 700;
+            font-size: 3rem;
+            text-align: center;
+            background-color: #17a2b8;
+            color: white;
+            padding: 1.5rem 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .container {
@@ -27,6 +49,7 @@
             width: 350px;
             text-align: center;
             transition: all 0.3s ease;
+            margin: 0 auto;
         }
 
         .container:hover {
@@ -92,25 +115,6 @@
             background-color: #e53935;
         }
 
-        .login-link {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #007bff;
-            transition: color 0.3s ease;
-        }
-
-        .login-link:hover {
-            color: #0056b3;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-            display: none;
-        }
-
         .password-container {
             position: relative;
             width: 100%;
@@ -125,14 +129,38 @@
             color: #28a745;
         }
 
-        a {
-            text-decoration: none;
+        .footer {
+            background-color: #17a2b8;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            button,
+            .register-button,
+            .back-button {
+                font-size: 14px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
-
+    <div class="overlay"></div>
+    <div class="heading">Prayer Pulse | Committee Member Login</div>
     <div class="container">
         <h2>Committee Member Login</h2>
         <form id="loginForm" method="POST" action="/login">
@@ -149,6 +177,9 @@
         </form>
         <a href="/registerNewMosque"><button class="register-button">Register New Mosque</button></a>
         <a href="/"><button class="back-button">Go Back</button></a>
+    </div>
+    <div class="footer">
+        &copy; 2024 Prayer Pulse. All Rights Reserved.
     </div>
 
     <script>
