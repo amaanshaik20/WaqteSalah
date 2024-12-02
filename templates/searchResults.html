@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Pulse | Search Results</title>
+    <link rel="icon" href="/static/mosque-icon.jpg" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .results {
+            margin-top: 20px;
+            width: 1200px;
+            /* margin-left: 580px; */
+            display: flex;
+            /* flex-wrap: wrap; */
+            gap: 50px;
+
+        }
+
+        .result-container {
+            align-items: center;
+            justify-content: center;
+            /* text-align: center; */
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container h2 {
+            font-size: 20px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        .result-item {
+            margin-bottom: 10px;
+        }
+
+        .result-item strong {
+            display: inline-block;
+            width: 150px;
+            color: #333;
+        }
+
+        .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+        }
+
+        .back-button button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .back-button button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search Results</h1>
+    {% if results %}
+    <div class="results">
+        {% for result in results %}
+        <div class="result-container">
+            <h2>{{ result.mosqueName }}</h2>
+            <div class="result-item"><strong>Address:</strong> {{ result.address }}</div>
+            <div class="result-item"><strong>Committee Head:</strong> {{ result.committeeHeadName }}</div>
+            <div class="result-item"><strong>Phone Number:</strong> {{ result.phoneNumber }}</div>
+            <div class="result-item"><strong>Fajr:</strong> {{ result.fajr }}</div>
+            <div class="result-item"><strong>Zuhr:</strong> {{ result.zuhr }}</div>
+            <div class="result-item"><strong>Asr:</strong> {{ result.asr }}</div>
+            <div class="result-item"><strong>Magrib:</strong> {{ result.magrib }}</div>
+            <div class="result-item"><strong>Isha:</strong> {{ result.isha }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+    <div class="back-button">
+        <a href="{{ url_for('userLogin') }}"><button type="button">Back</button></a>
+    </div>
+</body>
+
+</html>

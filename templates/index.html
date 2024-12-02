@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Pulse</title>
+    <link rel="icon" href="/static/mosque-icon.jpg" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #e9ecef;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .heading {
+            font-weight: bolder;
+            font-size: 2rem;
+            text-align: center;
+            background-color: lightblue;
+            color: black;
+            padding: 1rem 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .flex-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card-container a {
+            text-decoration: none;
+        }
+
+        .card {
+            background-color: #343a40;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            background-color: #495057;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            color: whitesmoke;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">Prayer Pulse</div>
+    <div class="flex-box">
+        <div class="card-container">
+            <a href="/committee_login">
+                <div class="card">
+                    <h3>Committee</h3>
+                </div>
+            </a>
+            <a href="/userLogin">
+                <div class="card">
+                    <h3>User</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

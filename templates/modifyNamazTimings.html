@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Salah Times</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .heading {
+            text-align: center;
+            background-color: beige;
+            padding: 15px 0;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            background-color: #218838;
+        }
+
+        .form-container .back-button {
+            background-color: #007bff;
+        }
+
+        .form-container .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Change Salah Times</h1>
+    </div>
+
+    <div class="form-container">
+        <form id="timingsForm" method="POST" action="/updateTimings">
+            <label for="fajr">Fajr Time</label>
+            <input type="text" id="fajr" name="fajr" placeholder="Fajr Time" value="{{ fajr }}" required>
+
+            <label for="zuhr">Zuhr Time</label>
+            <input type="text" id="zuhr" name="zuhr" placeholder="Zuhr Time" value="{{ zuhr }}" required>
+
+            <label for="asr">Asr Time</label>
+            <input type="text" id="asr" name="asr" placeholder="Asr Time" value="{{ asr }}" required>
+
+            <label for="magrib">Magrib Time</label>
+            <input type="text" id="magrib" name="magrib" placeholder="Magrib Time" value="{{ magrib }}" required>
+
+            <label for="isha">Isha Time</label>
+            <input type="text" id="isha" name="isha" placeholder="Isha Time" value="{{ isha }}" required>
+
+            <button type="submit">Update Timings</button>
+        </form>
+        <a href="/committee_dashboard">
+            <button type="submit" class="back-button">Back</button>
+        </a>
+
+    </div>
+</body>
+
+</html>

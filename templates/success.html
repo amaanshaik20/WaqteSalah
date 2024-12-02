@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Successful</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555555;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .redirect-message {
+            font-size: 16px;
+            color: #777777;
+        }
+    </style>
+
+    <script>
+        // Redirect to the registration form after 3 seconds
+        setTimeout(function () {
+            window.location.href = "/";
+        }, 3000);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Registration Successful</h2>
+        <p>Your mosque has been registered successfully.</p>
+        <p>You will be redirected back to the registration form shortly.</p>
+    </div>
+</body>
+
+</html>

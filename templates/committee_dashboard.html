@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee Dashboard</title>
+    <link rel="icon" href="/static/mosque-icon.jpg" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .heading {
+            text-align: center;
+            background-color: #f8d7da;
+            padding: 20px;
+            width: 100%;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #721c24;
+            font-weight: bold;
+        }
+
+        .timings {
+            width: 80%;
+            max-width: 900px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 18px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        tr,
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 20px;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+
+        .btn a {
+            text-decoration: none;
+        }
+
+        .btn button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn button:focus {
+            outline: none;
+        }
+
+        /* New Style for Modify Committee Information Button */
+        .modify-info-btn {
+            margin-top: 40px;
+        }
+
+        .modify-info-btn a {
+            text-decoration: none;
+        }
+
+        .modify-info-btn button {
+            padding: 12px 20px;
+            background-color: #28a745;
+            /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .modify-info-btn button:hover {
+            background-color: #218838;
+            /* Darker green on hover */
+            transform: translateY(-2px);
+            /* Button lift effect */
+        }
+
+        .modify-info-btn button:focus {
+            outline: none;
+        }
+
+        /* New Style for Logout Button */
+        .logout-btn {
+            margin-top: 20px;
+        }
+
+        .logout-btn a {
+            text-decoration: none;
+        }
+
+        .logout-btn button {
+            padding: 12px 20px;
+            background-color: #dc3545;
+            /* Red background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .logout-btn button:hover {
+            background-color: #c82333;
+            /* Darker red on hover */
+            transform: translateY(-2px);
+            /* Button lift effect */
+        }
+
+        .logout-btn button:focus {
+            outline: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Welcome, {{ mosque_name }}!</h1>
+    </div>
+
+    <div class="timings">
+        <table>
+            <tr>
+                <th>Salah</th>
+                <th>Jamaat</th>
+            </tr>
+            <tr>
+                <th>Fajr</th>
+                <td>{{ fajr }}</td>
+            </tr>
+            <tr>
+                <th>Zuhr</th>
+                <td>{{ zuhr }}</td>
+            </tr>
+            <tr>
+                <th>Asr</th>
+                <td>{{ asr }}</td>
+            </tr>
+            <tr>
+                <th>Magrib</th>
+                <td>{{ magrib }}</td>
+            </tr>
+            <tr>
+                <th>Isha</th>
+                <td>{{ isha }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="btn">
+        <a href="/modifyNamazTimings"><button>Change Namaz Timings</button></a>
+    </div>
+
+    <div class="modify-info-btn">
+        <a href="/modifyCommitteeInfo"><button>Modify Committee Information</button></a>
+    </div>
+
+    <div class="logout-btn">
+        <a href="/committee_login"><button>Logout</button></a>
+    </div>
+</body>
+
+</html>

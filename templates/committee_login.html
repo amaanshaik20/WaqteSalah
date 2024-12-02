@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Pulse| Committee Member Login</title>
+    <link rel="icon" href="/static/mosque-icon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- FontAwesome for icons -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .register-button {
+            background-color: #007bff;
+            margin-top: 20px;
+        }
+
+        .register-button:hover {
+            background-color: #0069d9;
+        }
+
+        .back-button {
+            background-color: #f44336;
+            margin-top: 10px;
+        }
+
+        .back-button:hover {
+            background-color: #e53935;
+        }
+
+        .login-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .login-link:hover {
+            color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-container i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #28a745;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Committee Member Login</h2>
+        <form id="loginForm" method="POST" action="/login">
+            <input type="text" name="userName" placeholder="User Name" required>
+            <div class="password-container">
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <i id="togglePassword" class="fas fa-eye"></i> <!-- Eye icon for showing/hiding password -->
+            </div>
+            <button type="submit">Login</button>
+
+            {% if error_message %}
+            <p id="errorMessage" class="error-message">{{ error_message }}</p>
+            {% endif %}
+        </form>
+        <a href="/registerNewMosque"><button class="register-button">Register New Mosque</button></a>
+        <a href="/"><button class="back-button">Go Back</button></a>
+    </div>
+
+    <script>
+        // Toggle the password visibility when the eye icon is clicked
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordField = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function () {
+            // Toggle the type between "password" and "text"
+            const type = passwordField.type === "password" ? "text" : "password";
+            passwordField.type = type;
+
+            // Toggle the eye icon between open and closed
+            this.classList.toggle("fa-eye-slash");
+        });
+
+        // If there is an error message, display it and hide it after 3 seconds
+        {% if error_message %}
+        var errorMessage = document.getElementById("errorMessage");
+        errorMessage.style.display = "block";  // Show the error message
+        setTimeout(function () {
+            errorMessage.style.display = "none";  // Hide after 3 seconds
+        }, 3000);
+        {% endif %}
+    </script>
+
+</body>
+
+</html>
