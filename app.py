@@ -8,7 +8,7 @@ conn = mysql.connector.connect(
     host='localhost',
     user='root',
     password='2002',
-    database='prayer_pulse'
+    database='prayer_pulse1'
 )
 
 @app.route("/")
